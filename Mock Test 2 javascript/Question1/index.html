@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: #ff0000;
+            color: white;
+            transition: all .2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+
+    <script>
+        let box = document.querySelector('.box');
+
+        let isClick = true;
+        box.addEventListener('click',()=>{
+            if(isClick)
+            {
+                
+                box.style.backgroundColor = 'yellow';
+    
+                const style = getComputedStyle(box);
+                let width = style.width;
+    
+                box.style.width = (width.slice(0,width.indexOf('p')))*2 +'px';
+    
+                let height = style.height;
+                box.style.height = (height.slice(0,height.indexOf('p')))*2+'px';
+                isClick=false;
+            }
+            else
+            {
+                box.style.width = "300px";
+                box.style.height = "300px";
+                box.style.backgroundColor = 'red';
+                isClick = true;
+            }
+            
+
+
+
+
+        })
+    </script>
+</body>
+</html>

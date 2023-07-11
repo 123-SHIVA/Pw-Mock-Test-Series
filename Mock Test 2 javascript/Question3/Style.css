@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2{
+    margin: 10px 0;
+}
+.data-container{
+    width: 90vw;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    align-items: center;
+
+}
+.card{
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 40vh;
+    object-fit: contain;
+    overflow: hidden;
+
+    
+}
+
+
+.skeletonId, .skeletonPara, .skeletonTitle{
+    
+    opacity: .7;
+    background-color: #5a5a5a;
+    border-radius: 10px;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.skeletonId{
+    width: 17%;
+    height: 25px;
+}
+.skeletonTitle{
+    width: 70%;
+    height: 35px;
+}
+
+.skeletonPara{
+    width: 100%;
+    height: 100px ;
+}
+
+
+
+@keyframes skeleton {
+    0%{
+        background-color: #594d4d;
+    }
+    25%{
+        
+        background-color: #9f9f9f;
+    }
+    50%{
+        background-color: #594d4d;
+    }
+    100%{
+        background-color: #9f9f9f;
+
+    }
+}
+
+
+@media  screen and (max-width:912px) {
+    .data-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card{
+        height: 300px;
+    }
+}
+
+@media  screen and (max-width:413px) {
+    .data-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .card{
+        height: 200px;
+    }
+}

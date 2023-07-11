@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div>
+        
+        <div> 
+            <h2>Modal Example</h2>
+            <button id="myBtn">Open Modal</button>
+        </div>
+        <div class="paragraph">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. A necessitatibus commodi earum dolore. Quae voluptatum inventore neque labore nihil mollitia ex. Soluta similique <br> quos sunt corrupti quidem maiores mollitia repellat, voluptas qui officia, eius magnam aut dolor praesentium itaque fugit dolore, harum quasi! Nisi fugit cum sunt eos harum ipsam, mollitia dol <br> ores consequuntur, deleniti, aut modi! Quaerat quae eaque consequuntur dolorum tempore libero rerum! Recusandae, rerum placeat harum debitis corrupti optio cupiditate impedit doloremque in accusamus sed sequi, temporibus magni fugit? Ad, sequi. Libero ea quae, illum esse veritatis ab vero nisi alias harum quo. Esse et officiis explicabo, <br> dolorum incidunt ducimus repellat quae beatae fuga pariatur similique aut voluptate itaque, dolor numquam. Illo aute <br> m voluptatem nam ipsam cupiditate deserunt aliquid tempore. Itaque, non asperiores, vero eos, totam saepe ea mollitia labore possimus consequuntur reiciendis? Impedit rerum pariatur doloremque amet error perferendis eligendi illo similique saepe ut. Ut veritatis explicabo nisi maxime enim? Consequuntur, veniam. Perferendis corporis accusantium nam voluptas reiciendis repudiandae nesciunt culpa doloribus maiores, ut ad nobis. <br> Ex deserunt quisquam enim consequatur nesciunt! Optio consectetur quam voluptatibus ad excepturi, in amet hic facilis nesciunt deserunt sapiente laboriosam cumque repellendus vitae repudiandae eos ipsa saepe, eius quidem blanditiis ratione.
+
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. A necessitatibus commodi earum dolore. Quae voluptatum inventore neque labore nihil mollitia ex. Soluta similique <br> quos sunt corrupti quidem maiores mollitia repellat, voluptas qui officia, eius magnam aut dolor praesentium itaque fugit dolore, harum quasi! Nisi fugit cum sunt eos harum ipsam, mollitia dol <br> ores consequuntur, deleniti, aut modi! Quaerat quae eaque consequuntur dolorum tempore libero rerum! Recusandae, rerum placeat harum debitis corrupti optio cupiditate impedit doloremque in accusamus sed sequi, temporibus magni fugit? Ad, sequi. Libero ea quae, illum esse veritatis ab vero nisi alias harum quo. Esse et officiis explicabo, <br> dolorum incidunt ducimus repellat quae beatae fuga pariatur similique aut voluptate itaque, dolor numquam. Illo aute <br> m voluptatem nam ipsam cupiditate deserunt aliquid tempore. Itaque, non asperiores, vero eos, totam saepe ea mollitia labore possimus consequuntur reiciendis? Impedit rerum pariatur doloremque amet error perferendis eligendi illo similique saepe ut. Ut veritatis explicabo nisi maxime enim? Consequuntur, veniam. Perferendis corporis accusantium nam voluptas reiciendis repudiandae nesciunt culpa doloribus maiores, ut ad nobis. <br> Ex deserunt quisquam enim consequatur nesciunt! Optio consectetur quam voluptatibus ad excepturi, in amet hic facilis nesciunt deserunt sapiente laboriosam cumque repellendus vitae repudiandae eos ipsa saepe, eius quidem blanditiis ratione.
+        </div>
+        
+    </div>
+    
+    <div id="myModal" class="modal">
+        
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Model is not available.....</p>
+        </div>
+        
+    </div>
+    
+    
+    
+    <script>
+        let modal = document.getElementById("myModal"); 
+        let btn = document.getElementById("myBtn");
+        let span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+            modal.style.display = "block";
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+
+            console.log(scrollTop)
+            console.log(scrollLeft)
+
+            window.onscroll = function() {
+                window.scrollTo(scrollLeft, scrollTop);
+            };
+        }
+        
+    span.onclick = function() {
+      modal.style.display = "none";
+      window.onscroll = function() {};
+    }
+    
+    window.onclick = function(event) {
+        
+        console.log(event.target,modal)
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #id{
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        Name: <input id="nameInput" type="text" placeholder="Enter your name"/> 
+        <button id="submit">Submit</button>
+        <h1 id="nameBox"></h1>
+    </div>
+
+    <script>
+        let input = document.getElementById('nameInput');
+        let nameBox = document.getElementById('nameBox');
+        let submit = document.getElementById('submit');
+
+        submit.addEventListener('click',()=>{
+            
+            let name = input.value;
+            nameBox.innerText=name;
+        })
+
+
+
+    </script>
+</body>
+</html>

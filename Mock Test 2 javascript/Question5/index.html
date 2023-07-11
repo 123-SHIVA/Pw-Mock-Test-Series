@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="form-container">
+        <form class="form">
+            <div><div class="title">Name  : </div><input type="text" id="name"></div>
+            <div><div class="title">Email : </div><input type="email" id="email"></div>
+            <div><div class="title">Phone :</div> <input type="tel" id="tel"></div>
+            <div><div class="title">Password:</div> <input type="password" id="password"></div>
+            <div><div class="title">Age    : </div><input type="number" id="age"></div>
+            <div><div class="title">Gender : </div><select  id="gender">
+                <option >select</option>
+                <option value="female">female</option>
+                <option value="male">male</option>
+            </select></div>
+            <div><div class="title">Date : </div><input type="date" id="date"></div>
+            <div><div class="title">color : </div><input type="color" id="color"></div>
+
+            <button id="submit">Submit</button>
+
+            <div id="error"></div>
+        </form>
+    </div>
+
+
+    <script>
+
+        let submit = document.getElementById('submit');
+        let error = document.getElementById('error');
+        
+        submit.addEventListener('click',(e)=>{
+
+            e.preventDefault();
+
+            let detail = {
+                name:"",
+                email:"",
+                tel:"",
+                password:"",
+                age:"",
+                gender:"",
+                date:"",
+                color:"",
+            }
+            
+            error.innerHTML="";
+
+            
+            let isSuccessful = true;
+            
+            for(const title in detail)
+            {
+                
+                let elem = document.getElementById(`${title}`)
+                detail[title]=elem.value;
+
+                // console.log(title,"   ",detail[title])
+                if(detail[title]==="")
+                {
+                    elem.style.borderBottomColor = 'red';
+                    error.innerText = "Error :  please fill all detail";
+                    isSuccessful = false;
+                }
+                if(title==="email")
+                {
+                    if(!detail[title].includes('@gmail.com'))
+                    {   
+                        elem.style.borderBottomColor = 'red';
+                        error.innerText = "Error : gmail must be contain @gmai.com ";
+                        isSuccessful = false;
+                    }
+                    else if(detail[title] !== detail[title].toLowerCase() )
+                    {
+                        console.log(detail[title].toLowerCase)
+                        elem.style.borderBottomColor = 'red';
+                        error.innerText = "Error : gmail must be in lower case";
+                        isSuccessful = false;
+                    }
+                }
+                if(title==='tel' && detail[title].length!=10)
+                {
+                    elem.style.borderBottomColor = 'red';
+                    isSuccessful = false;
+                    error.innerText = "Error : mobile number must be contain 10 digit";
+                    
+                }
+                if(title==='age' && detail[title]<18 && detail[title]>60)
+                {
+                    elem.style.borderBottomColor = 'red';
+                    isSuccessful = false;
+                    error.innerText = "Error : age must be range 0 to 60";
+
+                }
+                
+
+            }
+
+            console.log(detail)
+            if(isSuccessful)
+            {
+                error.innerText = "successfully completed "
+                error.style.color='green';
+            }
+        })
+
+        </script>
+</body>
+</html>
